@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from radio_estaqim import settings
+from .views import aliexpress_callback
 
 urlpatterns = [
     path('api/', include('quizzes.urls')),
-    path('admin/', admin.site.urls),
+    path('students/', include('core.urls')),
+    path('rayhana/', admin.site.urls),
+    path('aliexpress/callback/', aliexpress_callback),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
